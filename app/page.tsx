@@ -1,11 +1,11 @@
+import Hero from "@/components/Hero/page";
 
 
 
 export default function Home() {
   return (
-    <div className="w-full">
-    
-     richard udeh 
+    <div className="">
+      <Hero/>
     </div>
   );
 }
