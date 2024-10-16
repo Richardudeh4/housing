@@ -1,7 +1,15 @@
 import React from 'react'
 import { Input } from '../ui/input'
-import { Filter, Search, SlidersHorizontal } from 'lucide-react'
+import { Search, SlidersHorizontal } from 'lucide-react'
+import { Button } from '../ui/button'
 
+const freqMenu = [
+  {href: "/", title: "Melbourne"},
+  {href: "/", title: "Gold coast"},
+  {href: "/", title: "Brisbane"},
+  {href: "/", title: "Newcastle"},
+  {href: "/", title: "Sydney"},
+]
 const Hero = () => {
   return (
     <div className='w-full'>
@@ -21,8 +29,20 @@ const Hero = () => {
         {/* end of the search component */}
         {/* frequenctly searched suburb */}
         <div className='flex flex-col space-y-4'>
-            <h1 className='text-slate-400 text-[18px]'>Frequently searched suburb</h1>
-
+            <h1 className='text-slate-400 text-[18px] text-center'>Frequently searched suburb</h1>
+            <div className='pt-4 flex flex-row space-x-6 items-center'>
+              {
+                freqMenu.map((item,i) => (
+                  <Button key={i} className='rounded-[25px]' asChild>
+                    <h1 className='text-black'>{item.title}</h1>
+                  </Button>
+                ))
+              }
+            </div>
+        </div>
+        {/* end of frequency searched suburb */}
+        <div className='w-full mt-12'>
+          <video src='/assets/house.mp4' muted loop autoPlay/>
         </div>
       </div>
     </div> 
