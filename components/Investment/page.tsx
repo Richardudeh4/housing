@@ -3,14 +3,8 @@ import { Button } from '../ui/button'
 import Link from 'next/link'
 import { HouseCarousel } from '../house-carousel'
 
-const investMenu = [
-    {href:"/", title: "all"},
-    {href:"/", title: "vic"},
-    {href:"/", title: "qld"},
-    {href:"/", title: "nsw"},
-    {href:"/", title: "act"},
-    {href:"/", title: "sa"},
-]
+
+
 const Investment = () => {
   return (
     <div>
@@ -27,20 +21,7 @@ const Investment = () => {
             </Button>
             </div>
             </div>
-            <div className='mt-6'>
-                <div className='flex flex-row space-x-5 items-center'>
-                    {
-                        investMenu.map((item, i) => (
-                           <Button size="little" asChild key={i} className=''>
-                            <Link href="/" className='text-black uppercase'>
-                           {item.title}
-                            </Link>
-                           </Button>
-                        ))
-                    }
-                </div>
-            </div>
-            <HouseCarousel/>
+           <HouseCarousel/>
         </div>
        
     </div>

@@ -9,10 +9,12 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  
 } from "@/components/ui/carousel"
 import Image from "next/image";
 import { Button } from "./ui/button";
 import { BathIcon, Bed, Car, Download,  VerifiedIcon } from "lucide-react";
+import Link from "next/link";
 
 const houseCarousel = [
     {type : "Apartment", image: house1, name: "Highett Common", location: "Abbotsford, Victoria" , price:"$ 700000", bathRoom: "1-3", bedRoom: "1-3", packingSpace: "1-3"},
@@ -23,9 +25,40 @@ const houseCarousel = [
   {type : "Office", image: house3, name: "Albero Apartments", location: "Lake como, Italy" , price:"$ 700000", bathRoom: "1-3", bedRoom: "1-3", packingSpace: "1-3"},
     {type : "Apartment", image: house1, name: "Highett Common", location: "Basel, Switzerland" , price:"$ 750000", bathRoom: "1-3", bedRoom: "1-3", packingSpace: "1-3"},
 ]
+
+const investMenu = [
+  {href:"/", title: "all"},
+  {href:"/", title: "vic"},
+  {href:"/", title: "qld"},
+  {href:"/", title: "nsw"},
+  {href:"/", title: "act"},
+  {href:"/", title: "sa"},
+]
+
 export function HouseCarousel() {
   return (
-    <Carousel className="w-full mt-9">
+    <Carousel  className="w-full  relative py-10">
+      <div className="">
+      <div className=' flex  py-3 flex-row justify-between items-center'>
+                <div className='flex flex-row space-x-5 items-center'>
+                    {
+                        investMenu.map((item, i) => (
+                           <Button size="little" asChild key={i} className=''>
+                            <Link href="/" className='text-black uppercase'>
+                           {item.title}
+                            </Link>
+                           </Button>
+                        ))
+                    }
+                </div>
+                <div className='md:w-[30%] space-x-3 flex justify-end'>
+                <CarouselPrevious />
+                <CarouselNext />
+                </div>
+            </div>  
+      
+      </div>
+     
       <CarouselContent className="-ml-1">
        {
         houseCarousel.map((item, i) => (
@@ -82,11 +115,8 @@ export function HouseCarousel() {
           </CarouselItem>
         ))
        }
-         
-       
       </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
+     
     </Carousel>
   )
 }
